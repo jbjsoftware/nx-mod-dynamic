@@ -5,6 +5,7 @@ const config: ModuleFederationConfig = {
   library: { type: 'var', name: 'connections' },
   exposes: {
     './Module': './src/remote-entry.ts',
+    './Routes': './src/routes/route-definitions.ts',
   },
 };
 
