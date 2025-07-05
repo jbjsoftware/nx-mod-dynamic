@@ -1,0 +1,19 @@
+{
+  "name": "@repo/core",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@repo/ui": "*",
+    "react": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.0"
+  }
+}

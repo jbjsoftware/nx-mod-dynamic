@@ -1,7 +1,16 @@
+import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { StandaloneRouter } from './components/standalone-router';
+
+import { CoreProvider, StandaloneRemoteApp } from '@repo/core';
+import { connectionRoutes } from './routes/route-definitions';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(<StandaloneRouter />);
+root.render(
+  <StrictMode>
+    <CoreProvider>
+      <StandaloneRemoteApp routes={connectionRoutes} />
+    </CoreProvider>
+  </StrictMode>
+);

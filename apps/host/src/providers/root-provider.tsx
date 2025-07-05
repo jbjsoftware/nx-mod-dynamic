@@ -1,33 +1,36 @@
 import React from 'react';
-import { UIProvider, SidebarProvider } from '@repo/ui';
+import Cookies from 'js-cookie';
+
+import { SidebarProvider } from '@repo/ui';
+import { CoreProvider } from '@repo/core';
 
 interface RootProviderProps {
   children: React.ReactNode;
   defaultTheme?: 'dark' | 'light' | 'system';
   storageKey?: string;
-  defaultSidebarOpen?: boolean;
   sidebarOpen?: boolean;
   onSidebarOpenChange?: (open: boolean) => void;
 }
 
 export function RootProvider({
   children,
-  defaultTheme = 'system',
+  defaultTheme = 'dark',
   storageKey = 'app-theme',
-  defaultSidebarOpen = true,
   sidebarOpen,
   onSidebarOpenChange,
 }: RootProviderProps) {
+  const defaultOpen = Cookies.get('sidebar_state') === 'true';
+
   return (
-    <UIProvider defaultTheme={defaultTheme} storageKey={storageKey}>
+    <CoreProvider defaultTheme={defaultTheme} storageKey={storageKey}>
       <SidebarProvider
-        defaultOpen={defaultSidebarOpen}
+        defaultOpen={defaultOpen}
         open={sidebarOpen}
         onOpenChange={onSidebarOpenChange}
       >
         {children}
       </SidebarProvider>
-    </UIProvider>
+    </CoreProvider>
   );
 }
 

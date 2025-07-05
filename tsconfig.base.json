@@ -15,10 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@repo/core": ["packages/core/src/index.ts"],
       "@repo/ui": ["packages/ui/src/index.ts"],
       "@repo/utils": ["packages/utils/src/index.ts"],
       "connections/Module": ["apps/connections/src/remote-entry.ts"],
-      "dashboard/Module": ["apps/dashboard/src/remote-entry.ts"]
+      "dashboard/Module": ["apps/dashboard/src/remote-entry.ts"],
+      "foo/Module": ["remotes/foo/src/remote-entry.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
